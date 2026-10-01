@@ -21,7 +21,7 @@ app.use('/api/practice', require('./routes/practiceRoutes'));
 // Proxy to Python calculators
 app.post('/api/calc/:tool', async (req, res) => {
   try {
-    const url = process.env.PYTHON_SERVICE_URL || 'http://localhost:8002';
+    const url = process.env.PYTHON_SERVICE_URL
     const response = await fetch(`${url}/calc/${req.params.tool}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
